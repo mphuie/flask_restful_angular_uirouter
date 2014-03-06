@@ -1,7 +1,5 @@
-from myapp import db
 from myapp.models import *
 from flask.ext.restful import Api, Resource, reqparse
-from flask import request
 
 class UserAPI(Resource):
     def get(self, id):
@@ -19,7 +17,6 @@ class UserAPI(Resource):
 
 class UserListAPI(Resource):
 
-
     def get(self):
         all_users = []
         users = User.query.all()
@@ -35,6 +32,5 @@ class UserListAPI(Resource):
         u.name = args['name']
         db.session.add(u)
         db.session.commit()
-
 
         return { 'name': u.name }

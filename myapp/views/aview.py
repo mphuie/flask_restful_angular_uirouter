@@ -1,6 +1,6 @@
 from myapp import app
 from flask import render_template
 
-@app.route('/')
+@app.route("/")
 def home():
-	return render_template('home.html')
+  return app.send_static_file('index.html')
